@@ -1,6 +1,8 @@
 package com.netcracker.polinomial;
 
 
+import java.util.Arrays;
+
 public class MyPolinomial {
 
     private double[] coefs;
@@ -47,5 +49,19 @@ public class MyPolinomial {
             }
         }
         return newPolinomial;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MyPolinomial)) return false;
+        MyPolinomial polinom = (MyPolinomial) o;
+        return Arrays.equals(polinom.coefs, coefs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(coefs);
     }
 }
